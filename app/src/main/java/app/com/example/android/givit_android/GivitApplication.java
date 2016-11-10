@@ -1,6 +1,5 @@
 package app.com.example.android.givit_android;
 
-
 import android.app.Application;
 
 import timber.log.Timber;
