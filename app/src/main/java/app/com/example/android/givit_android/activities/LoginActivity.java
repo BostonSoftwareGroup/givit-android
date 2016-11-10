@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import app.com.example.android.givit_android.R;
 import app.com.example.android.givit_android.fragments.LoginFragment;
+import app.com.example.android.givit_android.fragments.ResetPasswordFragment;
 
 public class LoginActivity extends AppCompatActivity {
 
