@@ -9,4 +9,5 @@
     <color name="colorLoginBlue">#4D6EA7</color>
     <color name="colorSignupRed">#FF6666</color>
     <color name="colorLightGray">#555555</color>
+    <color name="colorBlack">#000000</color>
 </resources>

@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="longRectangle" >
+    <style name="longRectangle">
         <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">30dp</item>
         <item name="android:layout_marginBottom">10dp</item>
