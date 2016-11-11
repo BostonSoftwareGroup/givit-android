@@ -8,7 +8,8 @@
     <string name="continue_without_joining">Continue without joining</string>
     <string name="agree_to_terms">By Continue, you agree to our Terms of Service and Privacy Policy</string>
     <string name="copy_right">2016 Givit,inc v5.6.8</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="reset_password_hint">Please enter the email you used to log in to Givit, and we will send you an email to reset your password.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reset_password_title">Reset password</string>
+    <string name="send_message">Send</string>
 </resources>
