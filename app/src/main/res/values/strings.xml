@@ -6,7 +6,9 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="login">Log in</string>
     <string name="signup">Sign Up</string>
-    <string name="continue_without_joining">Continue without joining</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="continue_without_joining">or Continue with</string>
     <string name="agree_to_terms">By Continue, you agree to our Terms of Service and Privacy Policy</string>
     <string name="copy_right">2016 Givit,inc v5.6.8</string>
 

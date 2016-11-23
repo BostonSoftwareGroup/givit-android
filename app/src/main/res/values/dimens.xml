@@ -2,8 +2,8 @@
     <!-- login fragment dimens -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="login_block_width">300dp</dimen>
-    <dimen name="login_block_height">470dp</dimen>
+    <dimen name="login_block_width">350dp</dimen>
+    <dimen name="login_block_height">450dp</dimen>
     <dimen name="logo_image_width">300dp</dimen>
     <dimen name="logo_image_height">80dp</dimen>
     <dimen name="login_margin">20dp</dimen>

@@ -8,14 +8,26 @@
     android:orientation="vertical"
     tools:context="app.com.example.android.givit_android.fragments.LoginFragment">
 
-    <ImageView
-        android:id="@+id/appLogo"
-        android:layout_width="@dimen/logo_image_width"
-        android:layout_height="@dimen/logo_image_height"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/login_margin"
-        android:layout_marginTop="@dimen/login_margin"
-        android:src="@drawable/app_logo" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/signUpButton"
+            style="@style/leftHalfRectangle"
+            android:layout_marginBottom="20dp"
+            android:text="@string/signup"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/logInButton"
+            style="@style/rightHalfRectangle"
+            android:layout_marginBottom="20dp"
+            android:text="@string/login"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
 
     <EditText
         style="@style/longRectangle"
@@ -44,20 +56,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/login_margin"
         android:text="@string/forgot_password"
-        android:textColor="@color/colorMainRed"
         android:textSize="@dimen/text_size" />
 
     <Button
+        android:id="@+id/long_button"
         style="@style/longRectangle"
-        android:backgroundTint="@color/colorLoginBlue"
-        android:text="@string/login"
-        android:textAppearance="@style/buttonTextAppearance" />
-
-    <Button
-        android:id="@+id/button"
-        style="@style/longRectangle"
-        android:backgroundTint="@color/colorSignupRed"
-        android:text="@string/signup"
         android:textAppearance="@style/buttonTextAppearance" />
 
     <TextView
@@ -69,6 +72,28 @@
         android:textAllCaps="false"
         android:textColor="@color/colorLightGrey"
         android:textSize="@dimen/text_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/smallRectangle"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/colorFacebookBlue"
+            android:text="@string/facebook"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite" />
+
+        <Button
+            style="@style/smallRectangle"
+            android:backgroundTint="@color/colorGoogleRed"
+            android:text="@string/google"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
