@@ -69,6 +69,7 @@ public class LoginFragment extends Fragment {
 
         logInButton.setTextColor(getResources().getColor(R.color.colorMainRed));
         logInButton.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+        logInButton.setBackgroundResource(R.drawable.rigth_half_rect);
 
         longButton.setBackgroundResource(R.drawable.red_border_rect);
         longButton.setTextColor(getResources().getColor(R.color.colorMainRed));
@@ -81,6 +82,7 @@ public class LoginFragment extends Fragment {
 
         signUpButton.setTextColor(getResources().getColor(R.color.colorLoginBlue));
         signUpButton.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+        signUpButton.setBackgroundResource(R.drawable.left_half_rect);
 
         longButton.setBackgroundResource(R.drawable.blue_border_rect);
         longButton.setTextColor(getResources().getColor(R.color.colorLoginBlue));
