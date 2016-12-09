@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import app.com.example.android.givit_android.R;
 import butterknife.BindView;
@@ -102,6 +103,12 @@ public class LoginFragment extends Fragment {
     @OnClick(R.id.forgot_password)
     public void onClickForgotPassword() {
         forgotPasswordListener.replaceFragmentListener();
+    }
+
+    //test
+    @OnClick(R.id.long_button)
+    public void onClickLongButton() {
+        Toast.makeText(this.getContext(), "Wrong password!", Toast.LENGTH_SHORT).show();
     }
 
     public interface ForgotPasswordListener {
