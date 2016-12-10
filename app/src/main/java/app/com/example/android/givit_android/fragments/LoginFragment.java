@@ -1,6 +1,7 @@
 package app.com.example.android.givit_android.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import app.com.example.android.givit_android.R;
+import app.com.example.android.givit_android.activities.AboutActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -102,6 +104,12 @@ public class LoginFragment extends Fragment {
     @OnClick(R.id.forgot_password)
     public void onClickForgotPassword() {
         forgotPasswordListener.replaceFragmentListener();
+    }
+
+    @OnClick(R.id.copyright)
+    public void onClickCopyright() {
+        Intent intent = new Intent(getActivity(), AboutActivity.class);
+        startActivity(intent);
     }
 
     public interface ForgotPasswordListener {
