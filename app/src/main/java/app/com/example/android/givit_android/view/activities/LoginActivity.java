@@ -1,4 +1,4 @@
-package app.com.example.android.givit_android.activities;
+package app.com.example.android.givit_android.view.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,8 +8,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import app.com.example.android.givit_android.R;
-import app.com.example.android.givit_android.fragments.LoginFragment;
-import app.com.example.android.givit_android.fragments.ResetPasswordFragment;
+import app.com.example.android.givit_android.view.fragments.LoginFragment;
+import app.com.example.android.givit_android.view.fragments.ResetPasswordFragment;
 
 public class LoginActivity extends AppCompatActivity implements LoginFragment.ForgotPasswordListener {
     @Override

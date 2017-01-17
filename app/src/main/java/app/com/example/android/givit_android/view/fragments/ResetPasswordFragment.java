@@ -1,4 +1,4 @@
-package app.com.example.android.givit_android.fragments;
+package app.com.example.android.givit_android.view.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
