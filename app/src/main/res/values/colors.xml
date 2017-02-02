@@ -14,5 +14,6 @@
     <color name="colorFacebookBlue">#6695BA</color>
     <color name="colorGoogleRed">#E4695A</color>
     <color name="colorLoginBlue">#3AAAD6</color>
+    <color name="colorBlack">#000000</color>
 
 </resources>
