@@ -1,20 +1,16 @@
 package app.com.example.android.givit_android.models;
 
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
 public class RegisterResponse implements Serializable{
     @SerializedName("code")
-    @Expose
     String code;
     @SerializedName("message")
-    @Expose
     String message;
     @SerializedName("body")
-    @Expose
     Object body;
 
     public String getCode() {

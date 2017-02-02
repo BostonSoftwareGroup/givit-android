@@ -15,7 +15,6 @@ import android.widget.EditText;
 import app.com.example.android.givit_android.R;
 import app.com.example.android.givit_android.models.RegisterResponse;
 import app.com.example.android.givit_android.models.UserRegister;
-import app.com.example.android.givit_android.net.GivitApi;
 import app.com.example.android.givit_android.net.GivitRetrofitService;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,13 +40,10 @@ public class LoginFragment extends Fragment {
 
     public String userEmail;
     public String userPassword;
-    public RegisterResponse registerResponse;
-    public GivitApi apiDelegate;
     public UserRegister user;
-    public Object responseBody;
     public GivitRetrofitService retrofitService = new GivitRetrofitService();
-    String code = "1000";
-    String message;
+    public String code;
+    public String message;
 
     protected View rootView;
 
@@ -140,34 +136,29 @@ public class LoginFragment extends Fragment {
             retrofitService.createUser(new Callback<RegisterResponse>() {
                 @Override
                 public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-//                code = response.body().getCode();
-//                message = response.body().getMessage();
                     if (response.body() == null) {
-                        System.out.println("NULL CODE");
-                    }
-                    if (response.body() != null) {
+                        System.out.println("NULL RESPONSE BODY");
+                    } else {
                         code = response.body().getCode();
+                        message = response.body().getMessage();
                     }
-                    System.out.println("RESPONSE: " + code);
+                    System.out.println("RESPONSE CODE: " + code);
+                    System.out.println("RESPONSE MSG: " + message);
                 }
 
                 @Override
                 public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                    System.out.println("FAIL CALLBACK");
-                    System.out.println("ERROR: " +  t.getLocalizedMessage());
-                    System.out.println("ERROR2: " +  t.toString());
+                    System.out.println("ENTER FAIL CALLBACK");
+                    System.out.println("ERROR: " + t.toString());
                 }
             }, user);
         } else {
             retrofitService.signInUser(new Callback<RegisterResponse>() {
                 @Override
                 public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-//                code = response.body().getCode();
-//                message = response.body().getMessage();
                     if (response.body() == null) {
-                        System.out.println("NULL CODE");
-                    }
-                    if (response.body() != null) {
+                        System.out.println("NULL RESPONSE");
+                    } else {
                         code = response.body().getCode();
                         message = response.body().getMessage();
                     }
@@ -177,12 +168,10 @@ public class LoginFragment extends Fragment {
                 @Override
                 public void onFailure(Call<RegisterResponse> call, Throwable t) {
                     System.out.println("FAIL CALLBACK");
-                    System.out.println("ERROR: " +  t.getLocalizedMessage());
-                    System.out.println("ERROR2: " +  t.toString());
+                    System.out.println("ERROR: " + t.toString());
                 }
             }, user);
         }
-
     }
 
     public interface ForgotPasswordListener {
