@@ -11,14 +11,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import app.com.example.android.givit_android.R;
+import app.com.example.android.givit_android.models.RegisterResponse;
+import app.com.example.android.givit_android.models.UserRegister;
+import app.com.example.android.givit_android.net.GivitApi;
+import app.com.example.android.givit_android.net.GivitRetrofitService;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginFragment extends Fragment {
+    @BindView(R.id.userEmail)
+    EditText userEmailEditText;
     @BindView(R.id.password)
     EditText passwordEditText;
     @BindView(R.id.long_button)
@@ -29,6 +37,17 @@ public class LoginFragment extends Fragment {
     Button logInButton;
 
     private ForgotPasswordListener forgotPasswordListener;
+    private int signInStatus = 1;//if user is signing up, equals 1; if user is logging in, equals 0
+
+    public String userEmail;
+    public String userPassword;
+    public RegisterResponse registerResponse;
+    public GivitApi apiDelegate;
+    public UserRegister user;
+    public Object responseBody;
+    public GivitRetrofitService retrofitService = new GivitRetrofitService();
+    String code = "1000";
+    String message;
 
     protected View rootView;
 
@@ -65,6 +84,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void initSignUpButtonLayout() {
+        signInStatus = 1;
+
         signUpButton.setBackgroundColor(getResources().getColor(R.color.colorMainRed));
         signUpButton.setTextColor(getResources().getColor(R.color.colorWhite));
 
@@ -78,6 +99,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void initLogInButtonLayout() {
+        signInStatus = 0;
+
         logInButton.setBackgroundColor(getResources().getColor(R.color.colorLoginBlue));
         logInButton.setTextColor(getResources().getColor(R.color.colorWhite));
 
@@ -105,10 +128,61 @@ public class LoginFragment extends Fragment {
         forgotPasswordListener.replaceFragmentListener();
     }
 
-    //test
     @OnClick(R.id.long_button)
     public void onClickLongButton() {
-        Toast.makeText(this.getContext(), "Wrong password!", Toast.LENGTH_SHORT).show();
+        userEmail = userEmailEditText.getText().toString();
+        userPassword = passwordEditText.getText().toString();
+        user = new UserRegister(userEmail, userPassword);
+        System.out.println("USEREMAIL: " + userEmail);
+        System.out.println("USERPASSWORD: " + userPassword);
+
+        if (signInStatus == 1) {
+            retrofitService.createUser(new Callback<RegisterResponse>() {
+                @Override
+                public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+//                code = response.body().getCode();
+//                message = response.body().getMessage();
+                    if (response.body() == null) {
+                        System.out.println("NULL CODE");
+                    }
+                    if (response.body() != null) {
+                        code = response.body().getCode();
+                    }
+                    System.out.println("RESPONSE: " + code);
+                }
+
+                @Override
+                public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                    System.out.println("FAIL CALLBACK");
+                    System.out.println("ERROR: " +  t.getLocalizedMessage());
+                    System.out.println("ERROR2: " +  t.toString());
+                }
+            }, user);
+        } else {
+            retrofitService.signInUser(new Callback<RegisterResponse>() {
+                @Override
+                public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+//                code = response.body().getCode();
+//                message = response.body().getMessage();
+                    if (response.body() == null) {
+                        System.out.println("NULL CODE");
+                    }
+                    if (response.body() != null) {
+                        code = response.body().getCode();
+                        message = response.body().getMessage();
+                    }
+                    System.out.println("RESPONSE: " + message);
+                }
+
+                @Override
+                public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                    System.out.println("FAIL CALLBACK");
+                    System.out.println("ERROR: " +  t.getLocalizedMessage());
+                    System.out.println("ERROR2: " +  t.toString());
+                }
+            }, user);
+        }
+
     }
 
     public interface ForgotPasswordListener {

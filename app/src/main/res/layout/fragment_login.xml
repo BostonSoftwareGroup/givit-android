@@ -30,12 +30,13 @@
 
 
     <EditText
-        style="@style/longRectangle"
+        android:id="@+id/userEmail"
+        style="@style/long_rectangle"
         android:hint="@string/default_email_hint"
         android:paddingLeft="@dimen/login_text_padding" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/etPasswordLayout"
+        android:id="@+id/userPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:hintEnabled="false"
@@ -43,7 +44,7 @@
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/password"
-            style="@style/longRectangle"
+            style="@style/long_rectangle"
             android:hint="@string/default_password_hint"
             android:inputType="textPassword"
             android:paddingLeft="@dimen/login_text_padding"
@@ -61,7 +62,7 @@
 
     <Button
         android:id="@+id/long_button"
-        style="@style/longRectangle"
+        style="@style/long_rectangle"
         android:textAppearance="@style/buttonTextAppearance" />
 
     <TextView

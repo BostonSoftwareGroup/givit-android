@@ -4,7 +4,8 @@ package app.com.example.android.givit_android.net;
 import java.io.IOException;
 
 import app.com.example.android.givit_android.ApplicationConstants;
-import app.com.example.android.givit_android.models.Response;
+import app.com.example.android.givit_android.models.RegisterResponse;
+import app.com.example.android.givit_android.models.UserRegister;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -21,14 +22,10 @@ public class GivitRetrofitService {
         initialize(ApplicationConstants.GIVIT_BASE_URL);
     }
 
-    public void getAllItems(Callback<Response> itemsCallback, String id) {
-        retrofitInterface.getAllItems(id).enqueue(itemsCallback);
-    }
-
-
     public void initialize(String url) {
         Retrofit preztoRetroFit = new Retrofit.Builder()
                 .baseUrl(url)
+                .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
@@ -36,21 +33,27 @@ public class GivitRetrofitService {
     }
 
     private OkHttpClient buildOkHttpClient() {
-        OkHttpClient.Builder preztoClient = new OkHttpClient.Builder();
-        preztoClient.addInterceptor(new Interceptor() {
+        OkHttpClient.Builder givitClient = new OkHttpClient.Builder();
+        givitClient.addInterceptor(new Interceptor() {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
                 Request original = chain.request();
 
                 Request request = original.newBuilder()
-                        .header("Content-Type", "application/json")
-//                        .header("Accept", "application/prezto.intrepid.io; version=1")
                         .method(original.method(), original.body())
                         .build();
-
+                
                 return chain.proceed(request);
             }
         });
-        return preztoClient.build();
+        return givitClient.build();
+    }
+
+    public void createUser(Callback<RegisterResponse> registerCallback, UserRegister userRegister) {
+        retrofitInterface.createUser(userRegister).enqueue(registerCallback);
+    }
+
+    public void signInUser(Callback<RegisterResponse> signInCallback, UserRegister user) {
+        retrofitInterface.signInUser(user).enqueue(signInCallback);
     }
 }
