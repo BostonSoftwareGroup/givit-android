@@ -41,9 +41,9 @@ public class LoginFragment extends Fragment {
     public String userEmail;
     public String userPassword;
     public UserRegister user;
-    public GivitRetrofitService retrofitService = new GivitRetrofitService();
     public String code;
     public String message;
+    public GivitRetrofitService retrofitService = new GivitRetrofitService();
 
     protected View rootView;
 
