@@ -1,9 +1,9 @@
 <resources>
-    <!-- Login Screen dimens -->
+    <!-- login fragment dimens -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="login_block_width">300dp</dimen>
-    <dimen name="login_block_height">470dp</dimen>
+    <dimen name="login_block_width">350dp</dimen>
+    <dimen name="login_block_height">450dp</dimen>
     <dimen name="logo_image_width">300dp</dimen>
     <dimen name="logo_image_height">80dp</dimen>
     <dimen name="login_margin">20dp</dimen>
@@ -13,4 +13,12 @@
     <dimen name="text_size">18sp</dimen>
     <dimen name="text_size_small">10sp</dimen>
     <dimen name="copyright_image_size">15dp</dimen>
+
+    <!--reset frament dimens-->
+    <dimen name="reset_padding">5dp</dimen>
+    <dimen name="reset_margin_small">10dp</dimen>
+    <dimen name="reset_margin">20dp</dimen>
+    <dimen name="reset_back_ic_size">25dp</dimen>
+    <dimen name="reset_text_size">16sp</dimen>
+    <dimen name="reset_text_size_large">20sp</dimen>
 </resources>

@@ -3,16 +3,41 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorMainRed</item>
+        <item name="colorPrimaryDark">@color/colorMainRed</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="longRectangle" >
+    <style name="long_rectangle">
         <item name="android:layout_width">250dp</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:background">@drawable/rectangle</item>
     </style>
 
+    <style name="smallRectangle">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:background">@drawable/rectangle</item>
+    </style>
+    <style name="leftHalfRectangle">
+        <item name="android:layout_width">125dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:background">@drawable/left_half_rect</item>
+    </style>
+
+    <style name="rightHalfRectangle">
+        <item name="android:layout_width">125dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:background">@drawable/rigth_half_rect</item>
+    </style>
+
+    <style name="buttonTextAppearance">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
 </resources>
