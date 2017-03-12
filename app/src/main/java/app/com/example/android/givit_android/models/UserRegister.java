@@ -7,7 +7,9 @@ import com.google.gson.internal.LinkedTreeMap;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserRegister implements Serializable{
     @SerializedName("apiKey")
@@ -24,13 +26,11 @@ public class UserRegister implements Serializable{
     List params = new ArrayList<>();
 
     public UserRegister(String userEmail, String userPassword) {
-        LinkedTreeMap<String, String> name = new LinkedTreeMap<String, String>();
-        name.put("username", userEmail);
-        LinkedTreeMap<String, String> password = new LinkedTreeMap<String, String>();
-        password.put("userpassword", userPassword);
+        Map<String, String> userInfo = new HashMap<String, String>();
+        userInfo.put("username", userEmail);
+        userInfo.put("password", userPassword);
 
-        this.params.add(name);
-        this.params.add(password);
+        this.params.add(userInfo);
         this.apiKey = "test";
         this.operator = "test";
         this.token = "test";
