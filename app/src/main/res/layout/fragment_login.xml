@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="app.com.example.android.givit_android.fragments.LoginFragment">
+    tools:context="app.com.example.android.givit_android.view.fragments.LoginFragment">
 
     <LinearLayout
         android:layout_width="wrap_content"

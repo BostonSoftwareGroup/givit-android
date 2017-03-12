@@ -1,4 +1,4 @@
-package app.com.example.android.givit_android.fragments;
+package app.com.example.android.givit_android.view.fragments;
 
 import android.content.Context;
 import android.graphics.Typeface;

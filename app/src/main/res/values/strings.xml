@@ -16,4 +16,8 @@
     <string name="reset_password_title">Reset password</string>
     <string name="reset_password_description">Please enter the email you used to \nlog in to Givit and we will send you \nan email to reset your password.</string>
     <string name="send">Send</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
