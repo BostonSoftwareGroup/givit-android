@@ -1,5 +1,6 @@
 package app.com.example.android.givit_android.view.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
 import android.net.Uri;
@@ -8,6 +9,7 @@ import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Layout;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,8 +38,11 @@ public class BrowsingFragment extends Fragment {
     ImageView openButton;
     @BindView(R.id.button_close_owner)
     ImageView closeButton;
+    @BindView(R.id.home_item_owner)
+    View itemOwner;
 
     protected View rootView;
+
 
     public BrowsingFragment() {
         super();
@@ -55,35 +60,36 @@ public class BrowsingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_browsing, container, false);
         this.rootView = view;
         ButterKnife.bind(this, view);
+        initImageLayout();
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-        initImageLayout();
     }
 
     private void initImageLayout(){
-        WindowManager wm = (WindowManager)getActivity().getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        int height = display.getHeight();
-        homePhoto.getLayoutParams().height = height*1/2;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        ((Activity) getContext()).getWindowManager()
+                .getDefaultDisplay()
+                .getMetrics(displayMetrics);
+        homePhoto.getLayoutParams().height = displayMetrics.heightPixels/2;
         //pictureView.setAdjustViewBounds(true);
     }
 
     @OnClick(R.id.button_open_owner)
     public void onClickOpenOwner(){
-        View itemOwner = (View) getActivity().findViewById(R.id.home_item_owner);
+        //View itemOwner = (View) getActivity().findViewById(R.id.home_item_owner);
         itemOwner.setVisibility(View.VISIBLE);
         openButton.setVisibility(View.GONE);
         closeButton.setVisibility(View.VISIBLE);
-        homeScroll.getLayoutParams().height = rootView.getHeight();;
+        homeScroll.getLayoutParams().height = rootView.getHeight();
     }
 
     @OnClick(R.id.button_close_owner)
     public void onClickCloseOwner(){
-        View itemOwner = (View) getActivity().findViewById(R.id.home_item_owner);
+        //View itemOwner = (View) getActivity().findViewById(R.id.home_item_owner);
         itemOwner.setVisibility(View.GONE);
         closeButton.setVisibility(View.GONE);
         openButton.setVisibility(View.VISIBLE);
